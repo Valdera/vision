@@ -11,9 +11,6 @@ class GuidedFilter:
         self._I = self._toFloatImg(I)
         self._initFilter()
 
-        # print('radius',self._radius)
-        # print('epsilon',self._epsilon)
-
     def _toFloatImg(self, img):
         if img.dtype == np.float32:
             return img
@@ -152,7 +149,7 @@ def getAtomsphericLight(darkChannel, img):
     return atomsphericLight
 
 
-def getMinChannel(img):
+def getMinDarkChannel(img):
     imgGray = np.zeros((img.shape[0], img.shape[1]), 'float32')
     for i in range(0, img.shape[0]):
         for j in range(0, img.shape[1]):
@@ -165,7 +162,7 @@ def getMinChannel(img):
 
 
 def getDarkChannel(img, blockSize):
-    img = getMinChannel(img)
+    img = getMinDarkChannel(img)
     addSize = int((blockSize - 1) / 2)
     newHeight = img.shape[0] + blockSize - 1
     newWidth = img.shape[1] + blockSize - 1
