@@ -173,11 +173,10 @@ def sceneRadianceRGB(sceneRadiance):
     return sceneRadiance
 
 
-def ucm(img):
+def see(img):
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     sceneRadiance = RGB_equalisation(img)
     sceneRadiance = stretching(sceneRadiance)
     sceneRadiance = HSVStretching(sceneRadiance)
     sceneRadiance = sceneRadianceRGB(sceneRadiance)
-    sceneRadiance = cv2.cvtColor(sceneRadiance, cv2.COLOR_RGB2BGR)
     return sceneRadiance

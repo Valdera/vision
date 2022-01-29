@@ -240,7 +240,7 @@ def sceneRadianceRGB(img, transmission, AtomsphericLight):
     return sceneRadiance
 
 
-def ulap(img, blockSize=11, gimfiltR=50, eps=10**-3):
+def see(img, blockSize=11, gimfiltR=50, eps=10**-3):
     DepthMap = depthMap(img)
     DepthMap = global_stretching(DepthMap)
     guided_filter = GuidedFilter(img, gimfiltR, eps)
