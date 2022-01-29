@@ -179,4 +179,5 @@ def see(img):
     sceneRadiance = stretching(sceneRadiance)
     sceneRadiance = HSVStretching(sceneRadiance)
     sceneRadiance = sceneRadianceRGB(sceneRadiance)
+    sceneRadiance = cv2.cvtColor(sceneRadiance, cv2.COLOR_RGB2BGR)
     return sceneRadiance
