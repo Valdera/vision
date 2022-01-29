@@ -111,6 +111,35 @@ class GuidedFilter:
         return self._computeOutput(ab, self._I)
 
 
+class Node(object):
+    def __init__(self, x, y, value):
+        self.x = x
+        self.y = y
+        self.value = value
+
+    def printInfo(self):
+        print(self.x, self.y, self.value)
+
+
+def getMinChannel(img):
+    if len(img.shape) == 3 and img.shape[2] == 3:
+        pass
+    else:
+        print("bad image shape, input must be color image")
+        return None
+    imgGray = np.zeros((img.shape[0], img.shape[1]), dtype=np.uint8)
+    localMin = 255
+
+    for i in range(0, img.shape[0]):
+        for j in range(0, img.shape[1]):
+            localMin = 255
+            for k in range(0, 3):
+                if img.item((i, j, k)) < localMin:
+                    localMin = img.item((i, j, k))
+            imgGray[i, j] = localMin
+    return imgGray
+
+
 def getDarkChannel(img, blockSize):
     if len(img.shape) == 2:
         pass
