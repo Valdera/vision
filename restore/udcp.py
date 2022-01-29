@@ -243,4 +243,4 @@ def see(img):
 
     transmission = Refinedtransmission(transmission, img)
     sceneRadiance = sceneRadianceRGB(img, transmission, AtomsphericLight)
-    return cv2.cvtColor(sceneRadiance, cv2.COLOR_RGB2BGR)
+    return sceneRadiance
