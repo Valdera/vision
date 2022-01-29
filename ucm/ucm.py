@@ -179,5 +179,5 @@ def ucm(img):
     sceneRadiance = stretching(sceneRadiance)
     sceneRadiance = HSVStretching(sceneRadiance)
     sceneRadiance = sceneRadianceRGB(sceneRadiance)
-    sceneRadiance = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
+    sceneRadiance = cv2.cvtColor(sceneRadiance, cv2.COLOR_RGB2BGR)
     return sceneRadiance
